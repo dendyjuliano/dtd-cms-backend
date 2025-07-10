@@ -2,7 +2,7 @@ import {
   Injectable,
   NotFoundException,
   ConflictException,
-  UnauthorizedException,
+  BadRequestException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -34,13 +34,13 @@ export class AdminService {
     });
 
     if (!admin) {
-      throw new UnauthorizedException('Invalid credentials');
+      throw new NotFoundException('Admin not found');
     }
 
     const isPasswordValid = await bcrypt.compare(password, admin.password);
 
     if (!isPasswordValid) {
-      throw new UnauthorizedException('Invalid credentials');
+      throw new BadRequestException('Invalid credentials');
     }
 
     const payload = { email: admin.email, sub: admin.id };
