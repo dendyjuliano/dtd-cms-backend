@@ -1,4 +1,4 @@
-import * as bcrypt from 'bcryptjs';
+const bcrypt = require('bcryptjs');
 
 async function generateInsertQuery() {
   const password = 'rahasia';

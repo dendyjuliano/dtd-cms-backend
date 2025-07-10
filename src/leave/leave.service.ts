@@ -151,9 +151,12 @@ export class LeaveService {
 
     let totalDaysUsed = 0;
     existingLeavesThisYear.forEach((leave) => {
+      const leaveStartDate = new Date(leave.date_start);
+      const leaveEndDate = new Date(leave.date_end);
+
       const leaveDuration =
         Math.ceil(
-          (leave.date_end.getTime() - leave.date_start.getTime()) /
+          (leaveEndDate.getTime() - leaveStartDate.getTime()) /
             (1000 * 3600 * 24),
         ) + 1;
       totalDaysUsed += leaveDuration;

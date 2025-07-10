@@ -209,7 +209,7 @@ npm run start:dev
 npm run start:prod
 ```
 
-The application will start on `http://localhost:3000`
+The application will start on `http://localhost:8000`
 
 ## API Endpoints
 
@@ -250,7 +250,7 @@ The application will start on `http://localhost:3000`
 ### Login
 
 ```bash
-curl -X POST http://localhost:3000/admin/auth/login \
+curl -X POST http://localhost:8000/admin/auth/login \
   -H "Content-Type: application/json" \
   -d '{
     "email": "admin@dtdcms.com",
@@ -261,7 +261,7 @@ curl -X POST http://localhost:3000/admin/auth/login \
 ### Create Staff
 
 ```bash
-curl -X POST http://localhost:3000/staff \
+curl -X POST http://localhost:8000/staff \
   -H "Authorization: Bearer YOUR_JWT_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -277,7 +277,7 @@ curl -X POST http://localhost:3000/staff \
 ### Create Leave
 
 ```bash
-curl -X POST http://localhost:3000/leave \
+curl -X POST http://localhost:8000/leave \
   -H "Authorization: Bearer YOUR_JWT_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
